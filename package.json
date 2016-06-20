@@ -1,6 +1,6 @@
 {
   "name": "d3-react-starterkit",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "D3 with React",
   "main": "index.js",
   "scripts": {
@@ -44,5 +44,9 @@
     "d3": "3.5.17",
     "react": "15.1.0",
     "react-dom": "15.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drew-thorson/d3-react-starterkit.git"
+  },
 }
