@@ -1,5 +1,12 @@
+.babelrc
+.editorconfig
+.eslintrc
 .gitignore
+.npmignore
+
+webpack*
 
 node_modules/
 build/
 dist/
+tools/

@@ -1,9 +1,21 @@
-# React D3 Responsive
+## React and D3 Charting
 
-## Get Started
-1. **Git Client**
-If you are not comfortable with using git via command line, install a [GUI Client](https://git-scm.com/downloads/guis).
+Modular ReactJS charts made using [d3](https://d3js.org/) chart utilities.
 
-## D3.js
+[![npm version](https://badge.fury.io/js/d3-react-starterkit.svg)](https://badge.fury.io/js/d3-react-starterkit)
 
-### Line Graph
+## Usage
+
+The latest version of d3-react-starterkit requires **React 0.14 or later**.
+
+### NPM
+Via `npm`:
+
+```
+npm install d3-react-starterkit
+```
+
+### License
+MIT
+
+Copyright (c) 2016 Drew Thorson

@@ -1,5 +1,7 @@
-## HEAD
+###0.0.4:
+###### Jun. 20, 2016
+- Fixed .npmignore to ignore files that were not needed
 
-## 1.0.0
-###### _Apr. 29, 2016_
-- initial commit
+###0.0.1:
+###### Jun. 20, 2016
+- Initial release

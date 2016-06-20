@@ -1,0 +1,13 @@
+{
+  "name": "d3-react-starterkit",
+  "version": "0.0.4",
+  "description": "D3 with React",
+  "main": "index.js",
+  "author": "Drew Thorson",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "3.5.17",
+    "react": "15.1.0",
+    "react-dom": "15.1.0"
+  }
+}
