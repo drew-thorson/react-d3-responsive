@@ -196,7 +196,7 @@ class AreaGraph extends React.Component {
 
     const _self = this;
     let data = this.state.data;
-    let lines;
+    let lines, title;
 
     lines = this.dataNest.map(function (d,i) {
       return (
@@ -225,8 +225,15 @@ class AreaGraph extends React.Component {
       );
     });
 
+    if (this.props.title) {
+      title = <h3>{this.props.title}</h3>;
+    } else {
+      title = "";
+    }
+
     return (
       <div>
+        {title}
         <svg id={this.props.chartId} width={this.state.width} height={this.props.height}>
           <g transform={this.transform}>
             <Grid h={this.h} grid={this.yGrid} gridType="y" />
@@ -246,6 +253,7 @@ AreaGraph.propTypes = {
   width: React.PropTypes.number,
   height: React.PropTypes.number,
   chartId: React.PropTypes.string,
+  title: React.PropTypes.string,
   dateFormat: React.PropTypes.string,
   xFormat: React.PropTypes.string,
   data: React.PropTypes.array.isRequired,

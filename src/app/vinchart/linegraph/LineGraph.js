@@ -225,10 +225,15 @@ class LineGraph extends React.Component {
       );
     });
 
-    title = <h3>{this.props.title}</h3>;
+    if (this.props.title) {
+      title = <h3>{this.props.title}</h3>;
+    } else {
+      title = "";
+    }
 
     return (
       <div>
+        {title}
         <svg id={this.props.chartId} width={this.state.width} height={this.props.height}>
           <g transform={this.transform}>
             <Grid h={this.h} grid={this.yGrid} gridType="y" />
