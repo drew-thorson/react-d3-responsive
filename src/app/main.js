@@ -1,9 +1,12 @@
 import React from 'react';
-import LineGraph from './vinchart/linegraph/LineGraph';
-import AreaGraph from './vinchart/areagraph/AreaGraph';
-import BarGraph from './vinchart/bargraph/BarGraph';
-import PieChart from './vinchart/piechart/PieChart';
-import ScatterPlot from './vinchart/scatterplot/ScatterPlot';
+import d3r from './vinchart';
+
+const LineGraph = d3r.LineGraph;
+const AreaGraph = d3r.AreaGraph;
+const BarGraph = d3r.BarGraph;
+const PieChart = d3r.PieChart;
+const ScatterPlot = d3r.ScatterPlot;
+
 import ChartData from './vinchart/testData/data.json';
 
 class Main extends React.Component {
