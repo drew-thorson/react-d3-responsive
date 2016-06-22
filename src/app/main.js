@@ -1,5 +1,5 @@
 import React from 'react';
-import d3r from './vinchart';
+import d3r from './d3components';
 
 const LineGraph = d3r.LineGraph;
 const AreaGraph = d3r.AreaGraph;
@@ -7,7 +7,7 @@ const BarGraph = d3r.BarGraph;
 const PieChart = d3r.PieChart;
 const ScatterPlot = d3r.ScatterPlot;
 
-import ChartData from './vinchart/testData/data.json';
+import ChartData from './d3components/testData/data.json';
 
 class Main extends React.Component {
   render() {

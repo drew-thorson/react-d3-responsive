@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": "Drew Thorson",
   "license": "MIT",
-  "dependencies": {
+  "peerDependencies": {
     "d3": "3.5.17",
     "react": "15.1.0",
     "react-dom": "15.1.0"

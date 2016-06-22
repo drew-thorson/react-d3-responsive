@@ -15,6 +15,14 @@ Via `npm`:
 npm install d3-react-starterkit
 ```
 
+### Support
+Issues: [d3-react-starterkit](https://github.com/drew-thorson/d3-react-starterkit/issues) on Github
+
+### Background
+Inspired by [this blog post](http://www.adeveloperdiary.com/react-js/create-reusable-charts-react-d3-part1/) by Abhisek Jana of [A Developer Diary](http://www.adeveloperdiary.com/)
+
+Also referencing [rd3](https://github.com/yang-wei/rd3) by Yang Wei for structure
+
 ### License
 MIT
 
