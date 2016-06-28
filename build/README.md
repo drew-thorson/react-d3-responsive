@@ -11,32 +11,8 @@ The latest version of d3-react-starterkit requires **React 0.14 or later**.
 ### NPM
 Via `npm`:
 
-If you havn't installed `react` and `d3` then:
-
-```
-npm install react react-dom
-npm install d3
-```
-
 ```
 npm install d3-react-starterkit
-```
-
-Then, import into your ReactJS project:
-
-```js
-var d3r = require('d3r');
-// es6
-import rd3 from 'd3r';
-```
-
-### Available Charts
-
-```js
-const LineGraph = d3r.LineGraph;
-const AreaGraph = d3r.AreaGraph;
-const BarGraph = d3r.BarGraph;
-const PieChart = d3r.PieChart;
 ```
 
 ### Support
@@ -51,4 +27,3 @@ Also referencing [rd3](https://github.com/yang-wei/rd3) by Yang Wei for structur
 MIT
 
 Copyright (c) 2016 Drew Thorson
-

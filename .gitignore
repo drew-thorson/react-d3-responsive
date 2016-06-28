@@ -28,6 +28,7 @@ node_modules
 
 #dist folder
 dist
+lib
 
 #Webstorm metadata
 .idea

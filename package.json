@@ -16,7 +16,8 @@
     "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm run clean-dist && npm run build:html",
     "build": "babel-node tools/build.js && npm run open:dist",
-    "publish": "echo \"publishing!\""
+    "publish": "npm run clean-pub && babel-node tools/npmBuild.js",
+    "clean-pub": "node_modules/.bin/rimraf ./lib"
   },
   "keywords": [
     "react",
