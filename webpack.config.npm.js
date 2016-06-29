@@ -33,7 +33,10 @@ const config = {
         // try to prefer "include" when possible
 
         // the "loader"
-        loader: "babel-loader" // or "babel" because webpack adds the '-loader' automatically
+        loader: "babel-loader", // or "babel" because webpack adds the '-loader' automatically
+        query: {
+          presets: ['es2015']
+        }
       }
     ]
   }

@@ -11,6 +11,10 @@ The latest version of d3-react-starterkit requires **React 0.14 or later**.
 ### NPM
 Via `npm`:
 
+```
+npm install d3-react-starterkit
+```
+
 If you havn't installed `react` and `d3` then:
 
 ```
@@ -18,18 +22,16 @@ npm install react react-dom
 npm install d3
 ```
 
-```
-npm install d3-react-starterkit
-```
-
-Then, import into your ReactJS project:
+Import into your ReactJS project one of the following ways:
 
 ```js
-var d3r = require('d3r');
 // es6
-import rd3 from 'd3r';
-```
+import d3r from 'd3-react-starterkit';
 
+// es5
+var d3r = require('d3-react-starterkit');
+
+```
 ### Available Charts
 
 ```js
