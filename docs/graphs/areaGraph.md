@@ -8,12 +8,7 @@
 
 Name | Type  | Default  | Description
 --- | --- | ---- | ---
-circleRadius | number | `3` |
-hoverAnimation | bool | `true` |
-margins | object | `{ top: 10, right: 20, bottom: 50, left: 45 }` |
+chartId | string | `chart_id` |
+dateFormat | string | `%m-%d-%Y` | [d3 API](https://github.com/d3/d3-time-format/blob/master/README.md)
+margins | object | `{ top: 10, right: 40, bottom: 20, left: 60 }` |
 data | any |  |
-className |  | `'rd3-linechart'` |
-xAxisClassName |  | `'rd3-linechart-xaxis'` |
-yAxisClassName |  | `'rd3-linechart-yaxis'` |
-
-test
