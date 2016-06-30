@@ -1,4 +1,4 @@
 # Summary
 
-* Line Graph
+* [Introduction](README.md)
 
