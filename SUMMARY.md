@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * Graphs
-   * Line Graph
+   * [Line Graph](lineGraph.md)
 
