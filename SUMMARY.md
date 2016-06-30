@@ -1,5 +1,5 @@
 # Summary
 
-* [Introduction](README.md)
+* [Introduction](docs/graphs/lineGraph.md)
 * [Line Graph](lineGraph.md)
 
