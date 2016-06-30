@@ -41,6 +41,8 @@ const BarGraph = d3r.BarGraph;
 const PieChart = d3r.PieChart;
 ```
 
+[For usage.](https://drew-thorson.github.io/d3-react-starterkit/)
+
 ### Support
 Issues: [d3-react-starterkit](https://github.com/drew-thorson/d3-react-starterkit/issues) on Github
 
