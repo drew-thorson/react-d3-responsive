@@ -3,5 +3,5 @@
 * [Introduction](README.md)
 * Graphs
    * [Line Graph](lineGraph.md)
-   * [Area Graph](areaGraph.md)
+   * [Area Graph](docs/graphs/areaGraph.md)
 
