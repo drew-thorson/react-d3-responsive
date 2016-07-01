@@ -2,7 +2,7 @@
 
 ## Example
 
-<iframe width="100%" height="400" src="//jsfiddle.net/YangWei/9g7zbk0h/embedded/result,js,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="500" src="//jsfiddle.net/thorsdre/ojvcd4bj/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ## Props
 
@@ -16,3 +16,4 @@ fillColor | string | `#0082a1` |
 margins | object | `{ top: 10, right: 40, bottom: 20, left: 60 }` |
 strokeColor | string | `#ffffff` |
 yMaxBuffer | number | `100` | Added spacing to top and bottom of minimum and maximum value
+o2r#2iGXQcz3T6kIDx4z
