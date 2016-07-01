@@ -215,8 +215,8 @@ class AreaGraph extends React.Component {
             showToolTip={_self.showToolTip}
             hideToolTip={_self.hideToolTip}
             removeFirstAndLast={true}
-            xData="day"
-            yData="count" />
+            xData={_self.props.xData}
+            yData={_self.props.yData} />
           <ToolTip
             tooltip={_self.state.tooltip}
             xValue="Date"
