@@ -29,12 +29,12 @@ const config = {
     //     keep_fnames: false
     //   }
     // }),
-    // new TransferWebpackPlugin([
-    //   {from: 'app/d3components'}
-    // ], path.resolve(__dirname,"src")),
-    // new TransferWebpackPlugin([
-    //   {from: ''}
-    // ], path.resolve(__dirname,"build"))
+    new TransferWebpackPlugin([
+      {from: 'app/d3components'}
+    ], path.resolve(__dirname,"src")),
+    new TransferWebpackPlugin([
+      {from: ''}
+    ], path.resolve(__dirname,"build"))
   ],
   module: {
     loaders: [
