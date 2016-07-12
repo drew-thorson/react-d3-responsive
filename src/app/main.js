@@ -1,5 +1,7 @@
 import React from 'react';
 import d3r from './d3components';
+// import d3r from '../../lib-compiled';
+// import d3r from '../../script-compiled';
 
 const LineGraph = d3r.LineGraph;
 const AreaGraph = d3r.AreaGraph;

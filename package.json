@@ -16,8 +16,12 @@
     "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm run clean-dist && npm run build:html",
     "build": "babel-node tools/build.js && npm run open:dist",
-    "npmbuild": "npm run clean-pub && babel-node tools/npmBuild.js",
-    "clean-npmbuild": "node_modules/.bin/rimraf ./lib"
+    "npmbuild": "npm run clean-npmbuild && babel-node tools/npmBuild.js",
+    "clean-npmbuild": "node_modules/.bin/rimraf ./lib",
+    "npm-public": "npm version patch && npm publish",
+    "compile": "npm run clean-compile && babel src/app/d3components --out-dir lib-compiled && babel src/app/d3components --out-file script-compiled.js && npm run clean-compile-move",
+    "clean-compile": "node_modules/.bin/rimraf ./lib-compiled",
+    "clean-compile-move": "npm run clean-npmbuild && babel-node tools/npmBuild.js"
   },
   "keywords": [
     "react",
