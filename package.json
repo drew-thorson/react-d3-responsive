@@ -16,6 +16,7 @@
     "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm run clean-dist && npm run build:html",
     "build": "babel-node tools/build.js && npm run open:dist",
+
     "npmbuild": "npm run clean-npmbuild && babel-node tools/npmBuild.js",
     "clean-npmbuild": "node_modules/.bin/rimraf ./lib",
     "npm-public": "npm version patch && npm publish",
