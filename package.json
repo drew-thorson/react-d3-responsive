@@ -29,7 +29,11 @@
     "d3",
     "responsive"
   ],
-  "author": "Drew Thorson",
+  "author": {
+    "name" : "Drew Thorson",
+    "email" : "thorsdre@gmail.com",
+    "url" : "http://drewthorson.com/"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "6.10.1",
