@@ -17,12 +17,11 @@
     "prebuild": "npm run clean-dist && npm run build:html",
     "build": "babel-node tools/build.js && npm run open:dist",
 
-    "npmbuild": "npm run clean-npmbuild && babel-node tools/npmBuild.js",
-    "clean-npmbuild": "node_modules/.bin/rimraf ./lib",
-    "npm-public": "npm version patch && npm publish",
-    "compile": "npm run clean-compile && babel src/app/d3components --out-dir lib-compiled && babel src/app/d3components --out-file script-compiled.js && npm run clean-compile-move",
-    "clean-compile": "node_modules/.bin/rimraf ./lib-compiled",
-    "clean-compile-move": "npm run clean-npmbuild && babel-node tools/npmBuild.js"
+    "npm-build": "npm run clean-npm-build && npm run babel-compile && babel-node tools/npmBuild.js",
+    "clean-npm-build": "node_modules/.bin/rimraf ./npm-lib",
+    "babel-compile": "babel src/app/d3components --out-dir npm-lib",
+
+    "npm-public": "npm version patch && npm publish"
   },
   "keywords": [
     "react",
@@ -30,9 +29,9 @@
     "responsive"
   ],
   "author": {
-    "name" : "Drew Thorson",
-    "email" : "thorsdre@gmail.com",
-    "url" : "http://drewthorson.com/"
+    "name": "Drew Thorson",
+    "email": "thorsdre@gmail.com",
+    "url": "http://drewthorson.com/"
   },
   "license": "MIT",
   "devDependencies": {
@@ -46,6 +45,7 @@
     "cheerio": "0.20.0",
     "colors": "1.1.2",
     "connect-history-api-fallback": "1.2.0",
+    "copy-webpack-plugin": "3.0.1",
     "eslint": "2.13.0",
     "eslint-plugin-import": "1.8.1",
     "eslint-plugin-react": "5.2.2",

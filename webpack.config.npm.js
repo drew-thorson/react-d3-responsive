@@ -1,6 +1,7 @@
 // For info about this file refer to webpack and webpack-hot-middleware documentation
 import webpack from 'webpack';
 import path from 'path';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
@@ -17,9 +18,9 @@ export default {
   entry: './src/app/d3components',
   target: 'web',
   output: { // Note: Only prod environment actually outputs files.
-    path: __dirname + '/libtest',
+    path: __dirname + '/npm-lib',
     publicPath: '',
-    filename: 'bundle.js'
+    filename: 'd3-react-starterkit.js'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -28,7 +29,30 @@ export default {
     new webpack.optimize.UglifyJsPlugin({
       compressor: {screw_ie8: true, keep_fnames: false, warnings: false},
       mangle: {screw_ie8: true, keep_fnames: false}
-    })
+    }),
+    // Transfer Files
+    new CopyWebpackPlugin([
+      {
+        from: 'CHANGELOG.md',
+        to: 'CHANGELOG.md',
+        toType: 'file'
+      },
+      {
+        from: 'LICENSE',
+        to: 'LICENSE',
+        toType: 'file'
+      },
+      {
+        from: 'README.md',
+        to: 'README.md',
+        toType: 'file'
+      },
+      {
+        from: 'build/package.json',
+        to: 'package.json',
+        toType: 'file'
+      }
+    ])
   ],
   module: {
     loaders: [
