@@ -20,7 +20,7 @@ export default {
   output: { // Note: Only prod environment actually outputs files.
     path: __dirname + '/npm-lib',
     publicPath: '',
-    filename: 'd3-react-starterkit.js'
+    filename: 'public/js/d3-react-starterkit.js'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
