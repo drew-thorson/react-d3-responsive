@@ -1,9 +1,13 @@
 {
   "name": "d3-react-starterkit",
-  "version": "0.0.7",
+  "version": "0.0.12",
   "description": "D3 with React",
   "main": "index.js",
-  "author": "Drew Thorson",
+  "author": {
+    "name" : "Drew Thorson",
+    "email" : "thorsdre@gmail.com",
+    "url" : "http://drewthorson.com/"
+  },
   "license": "MIT",
   "peerDependencies": {
     "d3": "3.5.17",
