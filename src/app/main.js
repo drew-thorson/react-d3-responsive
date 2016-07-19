@@ -30,11 +30,11 @@ class Main extends React.Component {
           lineType="linear"
           fillColor="#53c79f"
           strokeColor="#67ff67"
-          data={ChartData.areaGraphData2} />
-        <AreaGraph
-          title="Area Graph"
-          lineType="cardinal"
           data={ChartData.areaGraphData} />
+        <AreaGraph
+          title="Multiple Area Graph"
+          lineType="cardinal"
+          data={ChartData.areaGraphData2} />
         <ScatterPlot
           title="Scatter Plot"
           lineType="cardinal"
