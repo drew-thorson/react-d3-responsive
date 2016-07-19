@@ -41,7 +41,8 @@ class Main extends React.Component {
           data={ChartData.scatterPlotData} />
         <BarGraph
           lineType="linear"
-          keys={['new','old','third','four']} />
+          keys={['new','old','third','four']}
+          data={ChartData.barGraphTestData} />
         <PieChart
           chartId="piechart"
           title="PieChart"

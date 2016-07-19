@@ -822,4 +822,55 @@ module.exports = {
   pieTestData: [
     158,93,20,120,187,45
   ],
+  barGraphTestData: [
+    {
+      "month": "Jan",
+      "new": 0,
+      "old": 50,
+      "third": 161,
+      "four": 14
+    },
+    {
+      "month": "Feb",
+      "new": 181,
+      "old": 24,
+      "third": 156,
+      "four": 59
+    },
+    {
+      "month": "Mar",
+      "new": 184,
+      "old": 153,
+      "third": 177,
+      "four": 121
+    },
+    {
+      "month": "Apr",
+      "new": 21,
+      "old": 180,
+      "third": 125,
+      "four": 150
+    },
+    {
+      "month": "May",
+      "new": 142,
+      "old": 1,
+      "third": 114,
+      "four": 142
+    },
+    {
+      "month": "Jun",
+      "new": 171,
+      "old": 17,
+      "third": 116,
+      "four": 153
+    },
+    {
+      "month": "Jul",
+      "new": 186,
+      "old": 135,
+      "third": 120,
+      "four": 164
+    }
+  ]
 };
