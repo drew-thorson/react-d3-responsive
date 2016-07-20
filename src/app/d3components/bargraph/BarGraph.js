@@ -111,6 +111,7 @@ class BarGraph extends React.Component {
 
     const _self = this;
     let data = this.state.data;
+    let title;
 
     let bars = _self.stacked.map(function(data,i) {
       let rects = data.map(function(d,j) {
@@ -137,8 +138,15 @@ class BarGraph extends React.Component {
       );
     });
 
+    if (this.props.title) {
+      title = <h3>{this.props.title}</h3>;
+    } else {
+      title = "";
+    }
+
     return (
       <div>
+        {title}
         <svg id={this.props.chartId} width={this.state.width} height={this.props.height}>
           <g transform={this.transform}>
             <Grid h={this.h} grid={this.yGrid} gridType="y" />
@@ -158,6 +166,7 @@ BarGraph.propTypes = {
   width: React.PropTypes.number,
   height: React.PropTypes.number,
   chartId: React.PropTypes.string,
+  title: React.PropTypes.string,
   data: React.PropTypes.array.isRequired,
   xData: React.PropTypes.string.isRequired,
   keys: React.PropTypes.array.isRequired,
