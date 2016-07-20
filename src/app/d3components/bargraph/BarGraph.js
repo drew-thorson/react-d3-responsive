@@ -33,7 +33,6 @@ class BarGraph extends React.Component {
   }
 
   componentWillUnmount() {
-    this.serverRequest.abort();
     window.removeEventListener('resize');
   }
 

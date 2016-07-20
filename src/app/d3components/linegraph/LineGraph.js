@@ -47,7 +47,6 @@ class LineGraph extends React.Component {
   }
 
   componentWillUnmount() {
-    this.serverRequest.abort();
     window.removeEventListener('resize');
   }
 

@@ -47,7 +47,6 @@ class AreaGraph extends React.Component {
   }
 
   componentWillUnmount() {
-    this.serverRequest.abort();
     window.removeEventListener('resize');
   }
 
