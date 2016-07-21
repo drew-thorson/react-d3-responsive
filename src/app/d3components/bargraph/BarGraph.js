@@ -18,22 +18,34 @@ class BarGraph extends React.Component {
     };
   }
 
-  componentWillMount(){
+  componentWillMount() {
     const _self = this;
-    window.addEventListener('resize', function(e) {
+    window.addEventListener('resize', function() {
       _self.updateSize();
-      // _self.reloadBarData();
     }, true);
     _self.setState({width: _self.props.width});
   }
 
   componentDidMount() {
-    this.updateSize();
     this.reloadBarData();
+    this.repaintComponent();
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize');
+  }
+
+  repaintComponent() {
+    const _self = this;
+    const forceResize = function(){
+        _self.updateSize();
+    };
+    function onRepaint(callback){
+      setTimeout(function(){
+        window.requestAnimationFrame(callback);
+      }, 0);
+    }
+    onRepaint(forceResize);
   }
 
   createChart(_self) {
@@ -45,13 +57,8 @@ class BarGraph extends React.Component {
     // Height of graph
     this.h = this.props.height - (this.props.margin.top + this.props.margin.bottom);
 
-    // Width of svg
-    this.xWidth = this.state.width;
-    // Height of svg
-    this.yHeight = this.props.height;
-
-    this.stacked = d3.layout.stack()(_self.props.keys.map(function(key,i){
-      return _self.state.data.map(function(d,j){
+    this.stacked = d3.layout.stack()(_self.props.keys.map(function(key){
+      return _self.state.data.map(function(d){
         return {x: d[_self.props.xData], y: d[key] };
       });
     }));
@@ -110,7 +117,6 @@ class BarGraph extends React.Component {
     this.createChart(this);
 
     const _self = this;
-    let data = this.state.data;
     let title;
 
     let bars = _self.stacked.map(function(data,i) {
@@ -170,7 +176,6 @@ BarGraph.propTypes = {
   data: React.PropTypes.array.isRequired,
   xData: React.PropTypes.string.isRequired,
   keys: React.PropTypes.array.isRequired,
-  fillColor: React.PropTypes.string,
   margin: React.PropTypes.object
 };
 
@@ -179,7 +184,6 @@ BarGraph.defaultProps = {
   height: 300,
   chartId: 'chart_id',
   xData:'month',
-  fillColor: 'transparent',
   margin: {
     top: 10,
     right: 10,

@@ -59,11 +59,6 @@ class AreaGraph extends React.Component {
     // Height of graph
     this.h = this.props.height - (this.props.margin.top + this.props.margin.bottom);
 
-    // Width of svg
-    this.xWidth = this.state.width;
-    // Height of svg
-    this.yHeight = this.props.height;
-
     // X axis scale
     this.xScale = d3.time.scale()
       .domain(
