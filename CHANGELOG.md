@@ -1,3 +1,8 @@
+###0.0.14:
+###### 22 JUL 2016
+- Removed some excess code that wasn't used anymore
+- Fixed inital load bug for width of chart
+
 ###0.0.13:
 ###### 20 JUL 2016
 - Removed data randomization on AreaGraph component
