@@ -17,7 +17,7 @@ class PieChart extends React.Component {
 
   componentWillMount(){
     const _self = this;
-    window.addEventListener('resize', function(e) {
+    window.addEventListener('resize', function() {
       _self.updateSize();
     }, true);
     _self.setState({width: _self.props.width});
@@ -29,7 +29,10 @@ class PieChart extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize');
+    const _self = this;
+    window.removeEventListener('resize', function() {
+      _self.updateSize();
+    }, true);
   }
 
   createChart(_self) {
@@ -105,6 +108,7 @@ class PieChart extends React.Component {
 
     const _self = this;
     let data = this.state.data;
+    let title;
 
     let wedge = _self.pie(data).map(function(d,i) {
       let fill = _self.color(i);
@@ -128,9 +132,15 @@ class PieChart extends React.Component {
 
     });
 
+    if (this.props.title) {
+      title = <h3>{this.props.title}</h3>;
+    } else {
+      title = "";
+    }
+
     return(
       <div>
-        <h3>{this.props.title}</h3>
+        {title}
         <svg id={this.props.chartId} width={this.state.width} height={this.props.height}>
           <g transform={this.transform}>
             {wedge}
