@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import d3 from 'd3';
 import Axis from '../utilities/axis';
+import AxisLabel from '../utilities/axisLabel';
 import Grid from '../utilities/grid';
 import Dots from '../utilities/dataPoints';
 import ToolTip from '../utilities/tooltip';
@@ -22,6 +23,7 @@ class ScatterPlot extends React.Component {
           key: '',
           value: ''
         },
+        originalColor: '',
         pos:{
           x: 0,
           y: 0
@@ -41,12 +43,28 @@ class ScatterPlot extends React.Component {
   }
 
   componentDidMount() {
-    this.updateSize();
     this.reloadBarData();
+    this.repaintComponent();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize');
+    const _self = this;
+    window.removeEventListener('resize', function() {
+      _self.updateSize();
+    });
+  }
+
+  repaintComponent() {
+    const _self = this;
+    const forceResize = function(){
+        _self.updateSize();
+    };
+    function onRepaint(callback){
+      setTimeout(function(){
+        window.requestAnimationFrame(callback);
+      }, 0);
+    }
+    onRepaint(forceResize);
   }
 
   createChart(_self) {
@@ -59,15 +77,48 @@ class ScatterPlot extends React.Component {
     this.h = this.props.height - (this.props.margin.top + this.props.margin.bottom);
 
     // X axis scale
-    this.xScale = d3.time.scale()
-      .domain(
-        // Find min and max axis value
-        d3.extent(this.state.data, function (d) {
-          return d.day;
-        })
-      )
-      // Set range from 0 to width of container
-      .rangeRound([0, this.w]);
+    if(this.props.dataType !== 'date') {
+      this.xScale= d3.scale.linear()
+        .domain([
+          d3.min(this.state.data,function(d){
+            return d[_self.props.xData];
+          }),
+          d3.max(this.state.data,function(d){
+            return d[_self.props.xData];
+          })
+        ])
+        .range([0, this.w]);
+
+      if(this.props.dataPercent == 'x') {
+        this.xAxis = d3.svg.axis()
+          .scale(this.xScale)
+          .orient('bottom')
+          .tickFormat( function(x) {
+            return x + '%';
+          });
+      } else {
+        this.xAxis = d3.svg.axis()
+          .scale(this.xScale)
+          .orient('bottom')
+          .ticks(Math.floor(this.w/100));
+      }
+    } else {
+      this.xScale = d3.time.scale()
+        .domain(
+          // Find min and max axis value
+          d3.extent(this.state.data, function (d) {
+            return d.day;
+          })
+        )
+        // Set range from 0 to width of container
+        .rangeRound([0, this.w]);
+
+      this.xAxis = d3.svg.axis()
+        .scale(this.xScale)
+        .orient('bottom')
+        .ticks(Math.floor(this.w/100))
+        .tickFormat(d3.time.format(this.props.xFormat));
+    }
 
     // Y axis scale
     this.yScale = d3.scale.linear()
@@ -98,16 +149,20 @@ class ScatterPlot extends React.Component {
         .key(function(d) {return d.type;})
         .entries(this.state.data);
 
-    this.yAxis = d3.svg.axis()
-      .scale(this.yScale)
-      .orient('left')
-      .ticks(5);
-
-    this.xAxis = d3.svg.axis()
-      .scale(this.xScale)
-      .orient('bottom')
-      .ticks(Math.floor(this.w/100))
-      .tickFormat(d3.time.format(this.props.xFormat));
+    if(this.props.dataPercent == 'y') {
+      this.yAxis = d3.svg.axis()
+        .scale(this.yScale)
+        .orient('left')
+        .ticks(5)
+        .tickFormat( function(x) {
+          return x + '%';
+        });
+    } else {
+      this.yAxis = d3.svg.axis()
+        .scale(this.yScale)
+        .orient('left')
+        .ticks(5);
+    }
 
     this.yGrid = d3.svg.axis()
       .scale(this.yScale)
@@ -127,9 +182,11 @@ class ScatterPlot extends React.Component {
     const parseDate = d3.time.format(this.props.dateFormat).parse;
 
     for(let i=0;i<data.length;++i) {
-        let d = data[i];
+      let d = data[i];
+      if(this.props.dataType == 'date') {
         d.day = parseDate(d.day);
         data[i] = d;
+      }
     }
 
     this.setState({data:data});
@@ -146,7 +203,6 @@ class ScatterPlot extends React.Component {
   }
 
   showToolTip(e){
-    e.target.setAttribute('fill', '#6f8679');
     this.setState({
       tooltip: {
         display: true,
@@ -154,16 +210,18 @@ class ScatterPlot extends React.Component {
           key: e.target.getAttribute('data-key'),
           value: e.target.getAttribute('data-value')
         },
+        originalColor: e.target.getAttribute('fill'),
         pos:{
           x: e.target.getAttribute('cx'),
           y: e.target.getAttribute('cy')
         }
       }
     });
+    e.target.setAttribute('fill', '#6f8679');
   }
 
   hideToolTip(e){
-    e.target.setAttribute('fill', '#b1bfb7');
+    e.target.setAttribute('fill', this.state.tooltip.originalColor);
     this.setState({
       tooltip: {
         display: false,
@@ -171,6 +229,7 @@ class ScatterPlot extends React.Component {
           key: '',
           value: ''
         },
+        originalColor: '',
         pos:{
           x: 0,
           y: 0
@@ -184,7 +243,7 @@ class ScatterPlot extends React.Component {
     this.createChart(this);
 
     const _self = this;
-    let lines;
+    let lines, title;
 
     lines = this.dataNest.map(function (d,i) {
       return (
@@ -196,26 +255,32 @@ class ScatterPlot extends React.Component {
             fill={_self.color(i)}
             showToolTip={_self.showToolTip}
             hideToolTip={_self.hideToolTip}
-            removeFirstAndLast={false}
-            xData="day"
-            yData="count"
+            xData={_self.props.xData}
+            yData={_self.props.yData}
             r={5} />
           <ToolTip
             tooltip={_self.state.tooltip}
-            xValue="Xtest"
-            yValue="Ytest" />
+            xValue={_self.props.xData}
+            yValue={_self.props.yData} />
         </g>
       );
     });
 
+    if (this.props.title) {
+      title = <h3>{this.props.title}</h3>;
+    } else {
+      title = "";
+    }
+
     return (
       <div>
-        <h3>{this.props.title}</h3>
+        {title}
         <svg id={this.props.chartId} width={this.state.width} height={this.props.height}>
           <g transform={this.transform}>
             <Grid h={this.h} grid={this.yGrid} gridType="y" />
             <Axis h={this.h} axis={this.yAxis} axisType="y" />
             <Axis h={this.h} axis={this.xAxis} axisType="x" />
+            <AxisLabel h={this.h} axisLabel="Visitors" axisType="y" />
             {lines}
           </g>
         </svg>
@@ -231,6 +296,8 @@ ScatterPlot.propTypes = {
   chartId: React.PropTypes.string,
   title: React.PropTypes.string,
   dateFormat: React.PropTypes.string,
+  dataType: React.PropTypes.string,
+  dataPercent: React.PropTypes.string,
   xFormat: React.PropTypes.string,
   data: React.PropTypes.array.isRequired,
   xData: React.PropTypes.string.isRequired,
@@ -246,16 +313,17 @@ ScatterPlot.defaultProps = {
   height: 300,
   chartId: 'chart_id',
   dateFormat:'%m-%d-%Y',
+  dataType:'date',
   xFormat:'%a %e',
   xData:'day',
   yData:'count',
   lineType:'linear',
   strokeColor: '#0082a1',
   margin: {
-    top: 50,
-    right: 50,
-    bottom: 50,
-    left: 50
+    top: 10,
+    right: 40,
+    bottom: 20,
+    left: 60
   },
   yMaxBuffer: 100
 };

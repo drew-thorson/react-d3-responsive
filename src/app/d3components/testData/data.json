@@ -1,5 +1,5 @@
 module.exports = {
-  lineGraphData: [
+  "lineGraphData": [
     {
       "day":"02-11-2016",
       "count":180
@@ -61,7 +61,7 @@ module.exports = {
       "count":199
     }
   ],
-  lineGraphData2: [
+  "lineGraphData2": [
     {
       "type": "A",
       "day": "02-11-2016",
@@ -288,7 +288,69 @@ module.exports = {
       "count": 418
     }
   ],
-  areaGraphData: [
+  "lineGraphData3": [
+    {
+      "day": 20,
+      "count": 180
+    },
+    {
+      "day": 21,
+      "count": 250
+    },
+    {
+      "day": 22,
+      "count": 150
+    },
+    {
+      "day": 23,
+      "count": 496
+    },
+    {
+      "day": 24,
+      "count": 140
+    },
+    {
+      "day": 25,
+      "count": 380
+    },
+    {
+      "day": 26,
+      "count": 100
+    },
+    {
+      "day": 27,
+      "count": 150
+    },
+    {
+      "day": 28,
+      "count": 400
+    },
+    {
+      "day": 29,
+      "count": 345
+    },
+    {
+      "day": 30,
+      "count": 80
+    },
+    {
+      "day": 31,
+      "count": 532
+    },
+    {
+      "day": 33,
+      "count": 471
+    },
+    {
+      "day": 34,
+      "count": 246
+    },
+    {
+      "day": 35,
+      "count": 199
+    }
+  ],
+  "areaGraphData": [
     {
       "type": "A",
       "day": "02-11-2016",
@@ -365,7 +427,7 @@ module.exports = {
       "count": 332
     }
   ],
-  areaGraphData2:  [
+  "areaGraphData2":  [
     {
       "type": "A",
       "day": "02-11-2016",
@@ -592,7 +654,7 @@ module.exports = {
       "count": 418
     }
   ],
-  scatterPlotData: [
+  "scatterPlotData": [
     {
       "type": "A",
       "day": "02-11-2016",
@@ -819,7 +881,234 @@ module.exports = {
       "count": 466
     }
   ],
-  barGraphTestData: [
+  "scatterPlotData2": [
+    {
+      "type": "A",
+      "x": 92,
+      "y": 310
+    },
+    {
+      "type": "A",
+      "x": 39,
+      "y": 136
+    },
+    {
+      "type": "A",
+      "x": 498,
+      "y": 153
+    },
+    {
+      "type": "A",
+      "x": 165,
+      "y": 441
+    },
+    {
+      "type": "A",
+      "x": 284,
+      "y": 468
+    },
+    {
+      "type": "A",
+      "x": 215,
+      "y": 438
+    },
+    {
+      "type": "A",
+      "x": 124,
+      "y": 381
+    },
+    {
+      "type": "A",
+      "x": 2,
+      "y": 376
+    },
+    {
+      "type": "A",
+      "x": 358,
+      "y": 261
+    },
+    {
+      "type": "A",
+      "x": 458,
+      "y": 491
+    },
+    {
+      "type": "A",
+      "x": 181,
+      "y": 465
+    },
+    {
+      "type": "A",
+      "x": 450,
+      "y": 312
+    },
+    {
+      "type": "A",
+      "x": 170,
+      "y": 223
+    },
+    {
+      "type": "A",
+      "x": 322,
+      "y": 469
+    },
+    {
+      "type": "A",
+      "x": 5,
+      "y": 168
+    },
+    {
+      "type": "B",
+      "x": 147,
+      "y": 466
+    },
+    {
+      "type": "B",
+      "x": 164,
+      "y": 124
+    },
+    {
+      "type": "B",
+      "x": 404,
+      "y": 322
+    },
+    {
+      "type": "B",
+      "x": 158,
+      "y": 157
+    },
+    {
+      "type": "B",
+      "x": 258,
+      "y": 159
+    },
+    {
+      "type": "B",
+      "x": 313,
+      "y": 150
+    },
+    {
+      "type": "B",
+      "x": 396,
+      "y": 147
+    },
+    {
+      "type": "B",
+      "x": 220,
+      "y": 356
+    },
+    {
+      "type": "B",
+      "x": 269,
+      "y": 442
+    },
+    {
+      "type": "B",
+      "x": 451,
+      "y": 133
+    },
+    {
+      "type": "B",
+      "x": 95,
+      "y": 177
+    },
+    {
+      "type": "B",
+      "x": 444,
+      "y": 35
+    },
+    {
+      "type": "B",
+      "x": 239,
+      "y": 88
+    },
+    {
+      "type": "B",
+      "x": 463,
+      "y": 121
+    },
+    {
+      "type": "B",
+      "x": 470,
+      "y": 468
+    },
+    {
+      "type": "C",
+      "x": 389,
+      "y": 329
+    },
+    {
+      "type": "C",
+      "x": 400,
+      "y": 475
+    },
+    {
+      "type": "C",
+      "x": 80,
+      "y": 25
+    },
+    {
+      "type": "C",
+      "x": 388,
+      "y": 307
+    },
+    {
+      "type": "C",
+      "x": 96,
+      "y": 340
+    },
+    {
+      "type": "C",
+      "x": 383,
+      "y": 145
+    },
+    {
+      "type": "C",
+      "x": 98,
+      "y": 293
+    },
+    {
+      "type": "C",
+      "x": 468,
+      "y": 342
+    },
+    {
+      "type": "C",
+      "x": 402,
+      "y": 80
+    },
+    {
+      "type": "C",
+      "x": 147,
+      "y": 3
+    },
+    {
+      "type": "C",
+      "x": 432,
+      "y": 458
+    },
+    {
+      "type": "C",
+      "x": 175,
+      "y": 280
+    },
+    {
+      "type": "C",
+      "x": 304,
+      "y": 483
+    },
+    {
+      "type": "C",
+      "x": 315,
+      "y": 288
+    },
+    {
+      "type": "C",
+      "x": 329,
+      "y": 466
+    }
+  ],
+  "barGraphTestData": [
     {
       "month": "Jan",
       "new": 0,
@@ -870,7 +1159,7 @@ module.exports = {
       "four": 164
     }
   ],
-  pieTestData: [
+  "pieTestData": [
     158,93,20,120,187,45
   ]
 };
