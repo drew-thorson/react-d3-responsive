@@ -28,19 +28,24 @@ class Dots extends React.Component {
 
     let circles = data.map(function(d,i) {
 
+      let xDatas = d[_self.props.xData];
+
+      if (!((new Date(d[_self.props.xData]) !== "Invalid Date" && !isNaN(new Date(d[_self.props.xData])))))
+        xDatas = d3.time.format(_self.props.format)(d[_self.props.xData]);
+
       return (
         <circle
           className="dot"
           r={_self.props.r}
-          cx={_self.props.x(d.day)}
-          cy={_self.props.y(d.count)}
+          cx={_self.props.x(d[_self.props.xData])}
+          cy={_self.props.y(d[_self.props.yData])}
           fill={_self.props.fill}
           stroke={_self.props.stroke}
           strokeWidth={_self.props.strokeWidth}
           key={i}
           onMouseOver={_self.props.showToolTip}
           onMouseOut={_self.props.hideToolTip}
-          data-key={d3.time.format(_self.props.format)(d[_self.props.xData])}
+          data-key={xDatas}
           data-value={d[_self.props.yData]} />
       );
     });
