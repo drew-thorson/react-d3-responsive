@@ -1,3 +1,33 @@
+###0.1.0:
+###### 22 SEP 2016
+- Legend Component Utility added
+- Legend added to Line Graph
+- Legend added to Area Graph
+- Legend added to Scatter Plot
+
+###0.0.21:
+###### 08 SEP 2016
+- Trend line added
+- Trend line prop added to scatter plot
+- Trend line types supported; linear
+
+###0.0.20:
+###### 05 AUG 2016
+- Edit Readme for installation
+- Fix multiple line graph issue with tooltip not showing on hovering over datapoint
+- Update package.json for installation
+
+###0.0.19:
+###### 03 AUG 2016
+- Edit Readme for installation
+
+###0.0.18:
+###### 03 AUG 2016
+- Fix inital sizing issue with charts
+- Fix bug with scatter plot with showToolTip and hideToolTip changing data point color
+- Fix for componentWillMount event listener for resizing
+- Passing of more customization props to components
+
 ###0.0.17:
 ###### 26 JUL 2016
 - dataPoints - Utility accepts x and y data key via props

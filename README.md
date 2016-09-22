@@ -2,50 +2,40 @@
 
 Modular ReactJS charts made using [d3](https://d3js.org/) chart utilities.
 
-[![npm version](https://badge.fury.io/js/d3-react-starterkit.svg)](https://badge.fury.io/js/d3-react-starterkit)
+[![npm version](https://badge.fury.io/js/react-d3-responsive.svg)](https://badge.fury.io/js/react-d3-responsive)
 
 ## Usage
 
-The latest version of react-d3-responsive requires **React 0.14 or later** and **D3 3.5.17**.
+The latest version of react-d3-responsive requires **React 0.14 or later** and **D3 3.5.4 or later**.
+
+**No support d3@v4.0 currently**
 
 ### NPM
 Via `npm`:
 
 ```
-npm install d3-react-starterkit
+npm install react-d3-responsive
 ```
 
-If you havn't installed `react` and `d3` then:
-
-```
-npm install react react-dom
-npm install d3@3.5.17
-```
-
-Import into your ReactJS project one of the following ways:
+Import into your ReactJS project:
 
 ```js
 // es6
-import d3r from 'd3-react-starterkit';
-
-// es5
-var d3r = require('d3-react-starterkit');
+import {AreaGraph, BarGraph, LineGraph, PieChart, ScatterPlot} from 'react-d3-responsive';
 ```
 
 ### Available Charts
 
-```js
-const AreaGraph = d3r.AreaGraph;
-const BarGraph = d3r.BarGraph;
-const LineGraph = d3r.LineGraph;
-const PieChart = d3r.PieChart;
-const ScatterPlot = d3r.ScatterPlot;
-```
+* AreaGraph
+* BarGraph
+* LineGraph
+* PieChart
+* ScatterPlot
 
-[For usage.](https://drew-thorson.github.io/d3-react-starterkit/)
+[For usage.](https://cox-auto-kc.github.io/react-d3-responsive/)
 
 ### Support
-Issues: [d3-react-starterkit](https://github.com/drew-thorson/d3-react-starterkit/issues) on Github
+Issues: [react-d3-responsive](https://github.com/cox-auto-kc/react-d3-responsive/issues) on Github
 
 ### Background
 Inspired by [this blog post](http://www.adeveloperdiary.com/react-js/create-reusable-charts-react-d3-part1/) by Abhisek Jana of [A Developer Diary](http://www.adeveloperdiary.com/)
@@ -55,5 +45,5 @@ Also referencing [rd3](https://github.com/yang-wei/rd3) by Yang Wei for structur
 ### License
 MIT
 
-Copyright (c) 2016 Drew Thorson
+Copyright &copy; 2016 Drew Thorson
 
