@@ -1,6 +1,6 @@
 {
-  "name": "d3-react-starterkit",
-  "version": "0.0.17",
+  "name": "react-d3-responsive",
+  "version": "0.1.0",
   "description": "D3 with React",
   "main": "index.js",
   "scripts": {
@@ -16,11 +16,9 @@
     "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm run clean-dist && npm run build:html",
     "build": "babel-node tools/build.js && npm run open:dist",
-
     "npm-build": "npm run clean-npm-build && npm run babel-compile && babel-node tools/npmBuild.js",
     "clean-npm-build": "node_modules/.bin/rimraf ./npm-lib",
     "babel-compile": "babel src/app/d3components --out-dir npm-lib",
-
     "npm-public": "npm version patch && npm publish"
   },
   "keywords": [
@@ -59,9 +57,9 @@
     "webpack-hot-middleware": "2.10.0"
   },
   "dependencies": {
-    "d3": "3.5.17",
-    "react": "15.1.0",
-    "react-dom": "15.1.0"
+    "d3": "^3.5.4",
+    "react": "^0.14.0 || ^15.0.1",
+    "react-dom": "^0.14.0 || ^15.0.1"
   },
   "repository": {
     "type": "git",
