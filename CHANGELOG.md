@@ -1,3 +1,22 @@
+###0.1.3:
+###### 25 OCT 2016
+- Unmounting fix for resizing function on all charts and graphs
+- Unmounting fix for resizing function on trend line
+
+###0.1.2:
+###### 19 OCT 2016
+- Added Custom Key Value Prop to LineGraph Component
+- Refined some code on LineGraph Component
+
+###0.1.1:
+###### 17 OCT 2016
+- Legend added to Pie Chart
+- Added Custom Key Value Prop
+- Added Custom Label Value Prop
+- Added show or hide Label Prop
+- Inner Radius Ratio is now from 0.00 to 1.00 (1 being 100% of the Radius)
+- Refined some code on pie chart
+
 ###0.1.0:
 ###### 22 SEP 2016
 - Legend Component Utility added
