@@ -1,39 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import * as d3 from "d3";
+import { line, curveBasisClosed } from 'd3-shape';
 
-class LineGraph extends Component {
-  createChart = (_self) => {
-    this.xScale = d3.scaleLinear()
-      .domain([
-        d3.min(this.props.data, function (d) {
-          return d[_self.props.xDataKey];
-        }),
-        d3.max(this.props.data, function (d) {
-          return d[_self.props.xDataKey];
-        })
-      ])
-      .rangeRound([0, this.w]);
-  }
+const LineGraph = ({ fill, stroke, data }) => {
+  const lineGenerator = line()
+    .curve(curveBasisClosed)
+    .x(d => d.x)
+    .y(d => d.y);
 
-  render() {
-    const { title } = this.props;
-    this.createChart(this);
-
-    return (
-      <svg className="rd3r-chart rd3r-line-graph" id="ID" width={1000} height={200}>
-        <text className="axis-label" textAnchor="middle" transform="translate(50,50)">{title}</text>
-      </svg>
-    );
-  }
+  return (
+    <path stroke={stroke} fill={fill} d={lineGenerator(data)} />
+  );
 }
 
 LineGraph.propTypes = {
-  title: PropTypes.string,
+  stroke: PropTypes.string,
+  fill: PropTypes.string
 };
 
 LineGraph.defaultProps = {
-  title: "title test"
+  stroke: "blue",
+  fill: "none"
 };
 
 export default LineGraph;

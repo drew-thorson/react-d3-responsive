@@ -1,18 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import LineGraph from './LineGraph';
-import ForceGraph from './ForceGraph';
-import { nodes, data } from './GraphingData';
-
+import App from './App';
 import './index.css';
 
 ReactDOM.render(
-  <div>
-    <div>
-      <ForceGraph data={nodes} forceStrength={-10} />
-    </div>
-    <LineGraph data={data} />
-  </div>,
+  <App />,
   document.getElementById('root')
 );

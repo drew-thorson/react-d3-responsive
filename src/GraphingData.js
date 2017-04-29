@@ -7,82 +7,26 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-export const data = {
-  lineGraphData: [
-    {
-      label: "Data Sample 1",
-      day: "02-11-2016",
-      count: 120
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-12-2016",
-      count: 200
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-13-2016",
-      count: 150
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-14-2016",
-      count: 496
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-15-2016",
-      count: 140
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-16-2016",
-      count: 380
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-17-2016",
-      count: 100
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-18-2016",
-      count: 150
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-19-2016",
-      count: 400
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-20-2016",
-      count: 345
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-21-2016",
-      count: 80
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-22-2016",
-      count: 520
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-23-2016",
-      count: 471
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-24-2016",
-      count: 246
-    },
-    {
-      label: "Data Sample 1",
-      day: "02-25-2016",
-      count: 199
-    }
-  ]
-};
+const random = () => 500 * Math.random();
+const size = 500;
+
+export const data = [
+  {
+    x: 0,
+    y: random(),
+  }, {
+    x: random(),
+    y: 0,
+  }, {
+    x: size,
+    y: random(),
+  }, {
+    x: random(),
+    y: size,
+  }
+];
+
+const n = 500;
+export const radialLineData = Array.from({ length: n }, (d, i) => {
+  return { x: 2 * i * Math.PI / n, y: 120 + 40 * (1 / 2 - Math.random()) };
+});

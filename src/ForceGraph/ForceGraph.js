@@ -22,7 +22,7 @@ class ForceGraph extends React.Component {
       .force("x", d3.forceX(width / 2))
       .force("y", d3.forceY(height / 2));
 
-    this.force.on('tick', () => this.setState({ nodes: nodes }));
+    this.force.on('tick', () => this.setState({ nodes }));
   }
 
   componentWillUnmount() {
