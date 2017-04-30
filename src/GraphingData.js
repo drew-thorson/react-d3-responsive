@@ -30,3 +30,8 @@ const n = 500;
 export const radialLineData = Array.from({ length: n }, (d, i) => {
   return { x: 2 * i * Math.PI / n, y: 120 + 40 * (1 / 2 - Math.random()) };
 });
+
+const aN = 20;
+export const areaGraphNodes = Array.from({ length: aN }, (d, i) => {
+  return { x: i, y: 40 * Math.random()};
+});
