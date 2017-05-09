@@ -17,7 +17,7 @@ const AreaGraph = ({ data, width, height, fill, stroke }) => {
 
   const yScale = scaleLinear()
     .domain(extent(data, (d) => d.y))
-    .range([height, 0]);
+    .range([height - 30, 0]);
 
   // const xAxis = axisBottom()
   //   .scale(xScale)
@@ -31,7 +31,7 @@ const AreaGraph = ({ data, width, height, fill, stroke }) => {
   // const scales = { xScale: xScale(props), yScale: yScale(props) };
 
   return (
-    <svg width={width + 30} height={height + 30}>
+    <svg width={width} height={height}>
       <g transform='translate(30,0)'>
         <path stroke={stroke} fill={fill} d={areaGenerator(data)} />
         <Axis xScale={xScale} width={width} height={height} />

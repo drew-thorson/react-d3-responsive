@@ -10,7 +10,7 @@ for (let i = 0; i < 100; i++) {
 const random = () => 500 * Math.random();
 const size = 500;
 
-export const data = [
+export const lineData = [
   {
     x: 0,
     y: random(),
