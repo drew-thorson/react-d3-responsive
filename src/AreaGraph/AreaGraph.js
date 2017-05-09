@@ -43,7 +43,9 @@ const AreaGraph = ({ data, width, height, fill, stroke }) => {
 }
 
 AreaGraph.propTypes = {
-  data: PropTypes.array,
+  htmlId: PropTypes.string,
+  className: PropTypes.string,
+  data: PropTypes.any,
   width: PropTypes.number,
   height: PropTypes.number,
   stroke: PropTypes.string,
