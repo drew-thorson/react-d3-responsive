@@ -5,6 +5,7 @@ import { scaleLinear, scaleTime } from 'd3-scale';
 import { extent } from 'd3-array';
 import { axisBottom } from 'd3-axis';
 import Axis from '../utilities/Axis';
+import AxisLabel from '../utilities/AxisLabel';
 
 const AreaGraph = ({ data, width, height, fill, stroke }) => {
   const xScale = scaleLinear()
@@ -36,6 +37,8 @@ const AreaGraph = ({ data, width, height, fill, stroke }) => {
         <path stroke={stroke} fill={fill} d={areaGenerator(data)} />
         <Axis xScale={xScale} width={width} height={height} />
         <Axis yScale={yScale} width={width} height={height} />
+        <AxisLabel width={width} height={height} axisLabel="testX" />
+        <AxisLabel width={width} height={height} axisLabel="testY" axisType="y" />
         {/*<XYAxis {...props} {...scales} />*/}
       </g>
     </svg>

@@ -58,7 +58,7 @@ class App extends React.Component {
           </g>
         </svg>
         <div>
-          <AreaGraphAlt width={500} height={200} {...this.state} />
+          <AreaGraphAlt width={500} height={200} margin={{top: 50, right: 50, bottom: 50, left: 50}} {...this.state} />
         </div>
         <div>
           <AreaGraph width={500} height={200} data={areaGraphNodes} />
