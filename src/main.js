@@ -6,7 +6,7 @@ import {
   PieChart,
   ScatterPlot
 } from "./d3components";
-import ChartData from "./d3components/testData/data.js";
+import ChartData from "./d3components/TestData/data.js";
 // import rd3r from '../../lib-compiled';
 // import rd3r from '../../script-compiled';
 

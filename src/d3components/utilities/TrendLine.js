@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { array, func, number, oneOf, string } from "prop-types";
 import d3 from "d3";
-import Margin from "../utilities/propTypes";
+import Margin from "../Utilities/propTypes";
 
 class TrendLine extends Component {
   createChart() {

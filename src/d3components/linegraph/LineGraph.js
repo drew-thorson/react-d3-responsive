@@ -2,14 +2,14 @@ import React from "react";
 import { array, bool, number, string } from "prop-types";
 import ReactDOM from "react-dom";
 import d3 from "d3";
-import Axis from "../utilities/Axis";
-import AxisLabel from "../utilities/AxisLabel";
-import Grid from "../utilities/Grid";
-import Dots from "../utilities/DataPoints";
-import ToolTip from "../utilities/Tooltip";
-import Legend from "../utilities/Legend";
-import Margin from "../utilities/propTypes";
-import { normalizeDate } from "../utilities/chartUtils";
+import Axis from "../Utilities/Axis";
+import AxisLabel from "../Utilities/AxisLabel";
+import Grid from "../Utilities/Grid";
+import Dots from "../Utilities/DataPoints";
+import ToolTip from "../Utilities/Tooltip";
+import Legend from "../Utilities/Legend";
+import Margin from "../Utilities/propTypes";
+import { normalizeDate } from "../Utilities/chartUtils";
 
 /** Linegraph Chart. **Note**: Datapoints are displayed in the order provided. */
 class LineGraph extends React.Component {

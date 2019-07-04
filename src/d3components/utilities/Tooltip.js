@@ -1,6 +1,6 @@
 import React from "react";
 import { bool, number, oneOf, shape, string } from "prop-types";
-import Margin from "../utilities/propTypes";
+import Margin from "../Utilities/propTypes";
 
 const ToolTip = ({
   tooltip,
