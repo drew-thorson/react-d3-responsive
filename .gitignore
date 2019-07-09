@@ -28,7 +28,6 @@ node_modules
 
 #dist folder
 dist
-build
 lib
 npm-lib
 

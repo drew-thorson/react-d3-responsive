@@ -2,12 +2,12 @@ import React from "react";
 import { array, bool, number, oneOf, string } from "prop-types";
 import ReactDOM from "react-dom";
 import d3 from "d3";
-import Axis from "../Utilities/Axis";
-import AxisLabel from "../Utilities/AxisLabel";
-import Grid from "../Utilities/Grid";
-import ToolTip from "../Utilities/Tooltip";
-import Legend from "../Utilities/Legend";
-import Margin from "../Utilities/propTypes";
+import Axis from "../utilities/Axis";
+import AxisLabel from "../utilities/AxisLabel";
+import Grid from "../utilities/Grid";
+import ToolTip from "../utilities/Tooltip";
+import Legend from "../utilities/Legend";
+import Margin from "../utilities/propTypes";
 
 /** Bar Chart */
 class BarGraph extends React.Component {

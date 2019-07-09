@@ -2,7 +2,7 @@ import React from "react";
 import { array, bool, number, string } from "prop-types";
 import ReactDOM from "react-dom";
 import d3 from "d3";
-import Legend from "../Utilities/Legend";
+import Legend from "../utilities/Legend";
 
 /** Pie Chart */
 class PieChart extends React.Component {
