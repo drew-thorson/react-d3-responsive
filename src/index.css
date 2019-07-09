@@ -1,3 +1,17 @@
-.rd3-fill-none .domain {
-  fill: none;
+.axis--y line,
+.axis--y .domain {
+  stroke: #333;
+}
+
+.y-grid line {
+  stroke: #ccc;
+}
+
+.axis--x line,
+.axis--x .domain {
+  stroke: #333;
+}
+
+.x-grid line {
+  stroke: #ccc;
 }

@@ -1,0 +1,9 @@
+https://github.com/d3
+https://github.com/d3/d3-shape/blob/v1.3.4/README.md#stack
+https://github.com/d3/d3-scale
+https://medium.com/technical-credit/declarative-d3-examples-in-react-6e736e526182
+https://medium.com/@caspg/responsive-chart-with-react-and-d3v4-afd717e57583
+
+Bar Charts
+https://observablehq.com/@d3/stacked-bar-chart
+https://observablehq.com/@d3/grouped-bar-chart

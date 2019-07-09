@@ -1,14 +1,13 @@
 import React from "react";
 import {
   AreaGraph,
-  BarGraph,
+  // BarGraph,
+  BarGraphV5,
   LineGraph,
   PieChart,
   ScatterPlot
-} from "./d3components";
-import ChartData from "./d3components/TestData/data.js";
-// import rd3r from '../../lib-compiled';
-// import rd3r from '../../script-compiled';
+} from "./components";
+import ChartData from "./components/TestData/data.js";
 
 const Main = () => (
   <div>
@@ -132,7 +131,7 @@ const Main = () => (
       dataType="data"
     />
 
-    <BarGraph
+    {/* <BarGraph
       title="Bar Graph"
       xDataKey="month"
       keys={["new", "old", "third", "four"]}
@@ -144,6 +143,42 @@ const Main = () => (
       xAxisLabel="X Axis Label"
       yAxisLabel="Y Axis Label"
       keys={["new", "old", "third", "four"]}
+      data={ChartData.barGraphTestData}
+    />
+    <BarGraph
+      title="Bar Graph - Side by Side"
+      barChartType="side"
+      xDataKey="month"
+      xAxisLabel="X Axis Label"
+      yAxisLabel="Y Axis Label"
+      keys={["new", "old", "third", "four"]}
+      legendValues={["new", "old", "third", "four"]}
+      colors={["#ECD078", "#D95B43", "#542437", "#53777A"]}
+      displayYAxisAsPercent={true}
+      data={ChartData.barGraphTestData}
+    /> */}
+    <BarGraphV5
+      // title="Bar Graph - Side by Side"
+      barChartType="side"
+      xDataKey="month"
+      xAxisLabel="X Axis Label"
+      yAxisLabel="Y Axis Label"
+      keys={["one", "two", "three", "four"]}
+      legendValues={["One", "Two", "Three", "Four"]}
+      colors={["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]}
+      // displayYAxisAsPercent={true}
+      data={ChartData.barGraphTestData}
+    />
+    <BarGraphV5
+      // title="Bar Graph - Side by Side"
+      barChartType="stack"
+      xDataKey="month"
+      xAxisLabel="X Axis Label"
+      yAxisLabel="Y Axis Label"
+      keys={["one", "two", "three", "four"]}
+      legendValues={["One", "Two", "Three", "Four"]}
+      // colors={["#ECD078", "#D95B43", "#542437", "#53777A"]}
+      // displayYAxisAsPercent={true}
       data={ChartData.barGraphTestData}
     />
 
