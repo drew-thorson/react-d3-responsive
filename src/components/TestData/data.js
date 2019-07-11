@@ -306,78 +306,68 @@ module.exports = {
   lineGraphData3: [
     {
       label: "Data Sample 2",
-      x: 20,
-      y: 180
-    },
-    {
-      label: "Data Sample 2",
-      x: 21,
-      y: 250
-    },
-    {
-      label: "Data Sample 2",
-      x: 22,
-      y: 150
-    },
-    {
-      label: "Data Sample 2",
-      x: 23,
-      y: 496
-    },
-    {
-      label: "Data Sample 2",
-      x: 24,
-      y: 140
-    },
-    {
-      label: "Data Sample 2",
-      x: 25,
-      y: 380
-    },
-    {
-      label: "Data Sample 2",
-      x: 26,
-      y: 100
-    },
-    {
-      label: "Data Sample 2",
-      x: 27,
-      y: 150
-    },
-    {
-      label: "Data Sample 2",
-      x: 28,
-      y: 400
-    },
-    {
-      label: "Data Sample 2",
-      x: 29,
-      y: 345
-    },
-    {
-      label: "Data Sample 2",
-      x: 30,
-      y: 80
-    },
-    {
-      label: "Data Sample 2",
-      x: 31,
-      y: 532
-    },
-    {
-      label: "Data Sample 2",
-      x: 33,
-      y: 471
-    },
-    {
-      label: "Data Sample 2",
-      x: 34,
-      y: 246
-    },
-    {
-      label: "Data Sample 2",
-      x: 35,
-      y: 199
+      values: [
+        {
+          x: 20,
+          y: 180
+        },
+        {
+          x: 21,
+          y: 250
+        },
+        {
+          x: 22,
+          y: 150
+        },
+        {
+          x: 23,
+          y: 496
+        },
+        {
+          x: 24,
+          y: 140
+        },
+        {
+          x: 25,
+          y: 380
+        },
+        {
+          x: 26,
+          y: 100
+        },
+        {
+          x: 27,
+          y: 150
+        },
+        {
+          x: 28,
+          y: 400
+        },
+        {
+          x: 29,
+          y: 345
+        },
+        {
+          x: 30,
+          y: 80
+        },
+        {
+          x: 31,
+          y: 532
+        },
+        {
+          x: 33,
+          y: 471
+        },
+        {
+          x: 34,
+          y: 246
+        },
+        {
+          x: 35,
+          y: 199
+        }
+      ]
     }
   ],
   areaGraphData: [

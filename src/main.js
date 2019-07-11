@@ -1,6 +1,7 @@
 import React from "react";
 import {
   AreaGraph,
+  AreaGraphV5,
   // BarGraph,
   BarGraphV5,
   LineGraph,
@@ -11,7 +12,7 @@ import ChartData from "./components/TestData/data.js";
 
 const Main = () => (
   <div>
-    <LineGraph
+    {/* <LineGraph
       title="Line Graph - 700px max width"
       width={700}
       height={500}
@@ -54,9 +55,9 @@ const Main = () => (
       lineType="linear"
       dataType="data"
       data={ChartData.lineGraphData3}
-    />
+    /> */}
 
-    <AreaGraph
+    {/* <AreaGraph
       title="Area Graph - 700px max width"
       width={700}
       height={500}
@@ -81,8 +82,19 @@ const Main = () => (
       fillColor="#53c79f"
       strokeColor="#67ff67"
       data={ChartData.areaGraphData}
+    /> */}
+    <AreaGraphV5
+      title="Area Graph"
+      xAxisLabel="X Axis Label"
+      yAxisLabel="Y Axis Label"
+      xDataKey="x"
+      yDataKey="y"
+      lineType="linear"
+      fillColor="#53c79f"
+      strokeColor="#67ff67"
+      data={ChartData.lineGraphData3}
     />
-    <AreaGraph
+    {/* <AreaGraph
       title="Area Graph - d3 cardinal line"
       xDataKey="day"
       yDataKey="count"
@@ -98,9 +110,9 @@ const Main = () => (
       lineType="cardinal"
       xFormat="%a"
       data={ChartData.areaGraphData2}
-    />
+    /> */}
 
-    <ScatterPlot
+    {/* <ScatterPlot
       title="Scatter Plot - Date X axis"
       xDataKey="day"
       yDataKey="count"
@@ -129,7 +141,7 @@ const Main = () => (
       lineNumbers="multi"
       data={ChartData.scatterPlotData3}
       dataType="data"
-    />
+    /> */}
 
     {/* <BarGraph
       title="Bar Graph"
@@ -182,7 +194,7 @@ const Main = () => (
       data={ChartData.barGraphTestData}
     />
 
-    <PieChart
+    {/* <PieChart
       title="Pie Chart"
       chartId="piechart"
       data={ChartData.pieTestData}
@@ -201,7 +213,7 @@ const Main = () => (
       legend={false}
       startAngle={-50}
       endAngle={154}
-    />
+    /> */}
   </div>
 );
 
