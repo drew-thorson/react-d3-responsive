@@ -7,7 +7,7 @@ import AxisLabel from "../Utilities/AxisLabel";
 import Grid from "../Utilities/Grid";
 import ToolTip from "../Utilities/Tooltip";
 import Legend from "../Utilities/Legend";
-import Margin from "../Utilities/propTypes";
+import { Margin } from "../Utilities/propTypes";
 
 /** Bar Chart */
 class BarGraph extends React.Component {
@@ -398,16 +398,16 @@ class BarGraph extends React.Component {
             <Axis height={this.h} axis={this.xAxis} axisType="x" />
             {xAxisLabel && (
               <AxisLabel
-                h={this.h}
-                w={this.w}
+                height={this.h}
+                width={this.w}
                 axisLabel={xAxisLabel}
                 axisType="x"
               />
             )}
             {yAxisLabel && (
               <AxisLabel
-                h={this.h}
-                w={this.w}
+                height={this.h}
+                width={this.w}
                 axisLabel={yAxisLabel}
                 axisType="y"
                 padding={displayYAxisAsPercent ? 15 : 0}

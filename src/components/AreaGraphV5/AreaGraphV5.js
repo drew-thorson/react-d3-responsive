@@ -1,16 +1,18 @@
 import React from "react";
-import { array, bool, number, oneOf, string } from "prop-types";
-import { scaleLinear, scaleOrdinal } from "d3-scale";
-import { area as d3area, curveBasis, curveLinear } from "d3-shape";
+import { array, bool, number, string } from "prop-types";
+import { scaleLinear, scaleOrdinal, scaleTime } from "d3-scale";
+import { area as d3area } from "d3-shape";
 import { schemeCategory10 } from "d3-scale-chromatic";
 import { max, min } from "d3-array";
 import { axisBottom, axisLeft, axisRight } from "d3-axis";
+import { Margin, LineTypes } from "../Utilities/propTypes";
+import { normalizeDate, interpolateCurve } from "../Utilities/chartUtils";
 import ResponsiveWrapper from "../Utilities/ResponsiveWrapper";
 import Axis from "../Utilities/Axis";
 import AxisLabel from "../Utilities/AxisLabel";
 import Grid from "../Utilities/Grid";
 import Legend from "../Utilities/Legend";
-import Margin from "../Utilities/propTypes";
+import Dots from "../Utilities/DataPoints";
 
 class AreaGraphV5 extends React.Component {
   static propTypes = {
@@ -26,13 +28,13 @@ class AreaGraphV5 extends React.Component {
     /** If set to either x or y, that axis will be displayed with a % at the end of the axis numbers. */
     dataPercent: string,
 
-    /** Tooltip date format display [d3.js v3 time api](https://github.com/d3/d3-3.x-api-reference/blob/master/Time-Formatting.md#format"). */
+    /** Tooltip date format display [d3.js v3 time api](https://github.com/d3/d3-3.x-api-reference/blob/master/Time-Formatting.md#format). */
     dataPointDateFormat: string,
 
     /** Data type date, percent, or number. This will format the number the right way for d3. */
     dataType: string,
 
-    /** Date format being passed via data [d3.js v3 time api](https://github.com/d3/d3-3.x-api-reference/blob/master/Time-Formatting.md#format"). */
+    /** Date format being passed via data [d3.js v5 time api](https://github.com/d3/d3-time-format#api-reference). */
     dateFormat: string,
 
     /** Display horizontal grid lines when set to true. */
@@ -53,8 +55,8 @@ class AreaGraphV5 extends React.Component {
     /** Label key-value pair key value in data. */
     labelKey: string,
 
-    /** Line display type [d3.js v3 line api](https://github.com/d3/d3-3.x-api-reference/blob/master/SVG-Shapes.md#line_interpolate). */
-    lineType: string,
+    /** Line display type of `cardinal`, `linear`, `step`, `step-after`, or `step-before`. */
+    lineType: LineTypes,
 
     /** Graph area margin. Example: `{top: 5, left: 5, bottom: 5, right: 5}` */
     margin: Margin,
@@ -106,9 +108,11 @@ class AreaGraphV5 extends React.Component {
   };
 
   static defaultProps = {
+    dateFormat: "%m-%d-%Y",
     displayHorizontalGridLines: true,
     displayLegend: true,
     height: 500,
+    lineType: "linear",
     margin: {
       top: 10,
       right: 40,
@@ -122,6 +126,7 @@ class AreaGraphV5 extends React.Component {
     const {
       colors,
       data,
+      dataType,
       displayHorizontalGridLines,
       displayLegend,
       legendValues,
@@ -129,6 +134,7 @@ class AreaGraphV5 extends React.Component {
       margin,
       parentWidth,
       parentMinWidth,
+      lineType,
       xDataKey,
       yDataKey,
       xAxisLabel,
@@ -141,6 +147,9 @@ class AreaGraphV5 extends React.Component {
       width: Math.max(parentWidth, parentMinWidth),
       height: height
     };
+
+    const normalizeDateFormat =
+      dataType === "date" ? normalizeDate(this.props) : data;
 
     const xLabelHeightOffset = xAxisLabel ? 30 : 0;
     const yLabelWidthOffset = yAxisLabel ? 20 : 0;
@@ -157,19 +166,24 @@ class AreaGraphV5 extends React.Component {
       ? legendValues.map(value => ({ label: value }))
       : data.map(legend => ({ label: legend.label }));
 
-    const xScale = scaleLinear().rangeRound([0, calcWidth]);
-    const yScale = scaleLinear().rangeRound([calcHeight, 0]);
+    let xScale;
 
-    xScale.domain([
-      min(data, d => min(d.values, d2 => d2[xDataKey])),
-      max(data, d => max(d.values, d2 => d2[xDataKey]))
-    ]);
-    yScale
+    dataType === "date" ? (xScale = scaleTime()) : (xScale = scaleLinear());
+
+    xScale
+      .rangeRound([0, calcWidth])
+      .domain([
+        min(normalizeDateFormat, d => min(d.values, d2 => d2[xDataKey])),
+        max(normalizeDateFormat, d => max(d.values, d2 => d2[xDataKey]))
+      ]);
+
+    const yScale = scaleLinear()
+      .rangeRound([calcHeight, 0])
       .domain([0, max(data, d => max(d.values, d2 => d2[yDataKey]))])
       .nice();
 
     const area = d3area()
-      .curve(curveLinear)
+      .curve(interpolateCurve(lineType))
       .x(d => xScale(d[xDataKey]))
       .y1(d => yScale(d[yDataKey]))
       .y0(calcHeight);
@@ -195,8 +209,8 @@ class AreaGraphV5 extends React.Component {
             />
             {xAxisLabel && (
               <AxisLabel
-                h={calcHeight}
-                w={calcWidth}
+                height={calcHeight}
+                width={calcWidth}
                 axisLabel={xAxisLabel}
                 axisType="x"
               />
@@ -219,21 +233,32 @@ class AreaGraphV5 extends React.Component {
             </g>
             {yAxisLabel && (
               <AxisLabel
-                h={calcHeight}
-                w={calcWidth}
+                height={calcHeight}
+                width={calcWidth}
                 axisLabel={yAxisLabel}
                 axisType="y"
               />
             )}
-            {data.map((d, i) => (
-              <path
-                key={d.label}
-                d={area(d.values)}
-                fill={colorScheme(i)}
-                stroke="green"
-                opacity=".9"
-                strokeWidth={3}
-              />
+            {normalizeDateFormat.map((d, i) => (
+              <g key={d.label}>
+                <path
+                  key={d.label}
+                  d={area(d.values)}
+                  fill={colorScheme(i)}
+                  // stroke="#333"
+                  opacity=".9"
+                  strokeWidth={3}
+                />
+                <Dots
+                  data={d.values}
+                  x={xScale}
+                  y={yScale}
+                  stroke="#333"
+                  fill={colorScheme(i)}
+                  xDataKey={xDataKey}
+                  yDataKey={yDataKey}
+                />
+              </g>
             ))}
           </g>
         </svg>

@@ -1,10 +1,10 @@
 import React from "react";
 import { number, oneOf, string } from "prop-types";
 
-const AxisLabel = ({ w, h, axisLabel, axisType, padding }) => {
-  const translateLabelX = "translate(" + w / 2 + "," + (h + 40) + ")";
+const AxisLabel = ({ width, height, axisLabel, axisType, padding }) => {
+  const translateLabelX = "translate(" + width / 2 + "," + (height + 40) + ")";
   const translateLabelY =
-    "translate(" + (-40 - padding) + "," + h / 2 + ") rotate(270)";
+    "translate(" + (-40 - padding) + "," + height / 2 + ") rotate(270)";
 
   return (
     <text
@@ -20,9 +20,9 @@ const AxisLabel = ({ w, h, axisLabel, axisType, padding }) => {
 AxisLabel.propTypes = {
   axisLabel: string,
   axisType: oneOf(["x", "y"]),
-  h: number,
+  height: number,
   padding: number,
-  w: number
+  width: number
 };
 
 AxisLabel.defaultProps = {

@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  AreaGraph,
+  // AreaGraph,
   AreaGraphV5,
   // BarGraph,
-  BarGraphV5,
-  LineGraph,
-  PieChart,
-  ScatterPlot
+  BarGraphV5
+  // LineGraph,
+  // PieChart,
+  // ScatterPlot
 } from "./components";
 import ChartData from "./components/TestData/data.js";
 
@@ -93,6 +93,20 @@ const Main = () => (
       fillColor="#53c79f"
       strokeColor="#67ff67"
       data={ChartData.lineGraphData3}
+    />
+    <AreaGraphV5
+      title="Area Graph"
+      xAxisLabel="X Axis Label"
+      yAxisLabel="Y Axis Label"
+      xDataKey="day"
+      yDataKey="count"
+      lineType="linear"
+      fillColor="#53c79f"
+      strokeColor="#67ff67"
+      colors={["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"]}
+      dateFormat="%m-%d-%Y"
+      dataType="date"
+      data={ChartData.lineGraphData2}
     />
     {/* <AreaGraph
       title="Area Graph - d3 cardinal line"

@@ -1,10 +1,18 @@
-import { number, shape } from "prop-types";
+import { number, oneOf, shape } from "prop-types";
 
-const Margin = shape({
+export const Margin = shape({
   top: number,
   right: number,
   bottom: number,
   left: number
 });
 
-export default Margin;
+export const LineTypes = oneOf([
+  "cardinal",
+  "linear",
+  "step",
+  "step-after",
+  "step-before"
+]);
+
+// export default Margin;

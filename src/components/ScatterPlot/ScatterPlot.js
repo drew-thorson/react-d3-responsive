@@ -9,7 +9,7 @@ import Dots from "../Utilities/DataPoints";
 import ToolTip from "../Utilities/Tooltip";
 import TrendLine from "../Utilities/TrendLine";
 import Legend from "../Utilities/Legend";
-import Margin from "../Utilities/propTypes";
+import { Margin } from "../Utilities/propTypes";
 import { normalizeDate } from "../Utilities/chartUtils";
 
 /** Scatterplot Chart. */
@@ -419,16 +419,16 @@ class ScatterPlot extends React.Component {
             <Axis height={this.h} axis={this.xAxis} axisType="x" />
             {xAxisLabel && (
               <AxisLabel
-                h={this.h}
-                w={this.w}
+                height={this.h}
+                width={this.w}
                 axisLabel={xAxisLabel}
                 axisType="x"
               />
             )}
             {yAxisLabel && (
               <AxisLabel
-                h={this.h}
-                w={this.w}
+                height={this.h}
+                width={this.w}
                 axisLabel={yAxisLabel}
                 axisType="y"
               />

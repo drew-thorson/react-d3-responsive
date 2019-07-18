@@ -10,7 +10,7 @@ import Axis from "../Utilities/Axis";
 import AxisLabel from "../Utilities/AxisLabel";
 import Grid from "../Utilities/Grid";
 import Legend from "../Utilities/Legend";
-import Margin from "../Utilities/propTypes";
+import { Margin } from "../Utilities/propTypes";
 
 class BarGraphV5 extends React.Component {
   static propTypes = {
@@ -180,8 +180,8 @@ class BarGraphV5 extends React.Component {
             />
             {xAxisLabel && (
               <AxisLabel
-                h={calcHeight}
-                w={calcWidth}
+                height={calcHeight}
+                width={calcWidth}
                 axisLabel={xAxisLabel}
                 axisType="x"
               />
@@ -204,8 +204,8 @@ class BarGraphV5 extends React.Component {
             </g>
             {yAxisLabel && (
               <AxisLabel
-                h={calcHeight}
-                w={calcWidth}
+                height={calcHeight}
+                width={calcWidth}
                 axisLabel={yAxisLabel}
                 axisType="y"
               />

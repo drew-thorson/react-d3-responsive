@@ -8,7 +8,7 @@ import Grid from "../Utilities/Grid";
 import Dots from "../Utilities/DataPoints";
 import ToolTip from "../Utilities/Tooltip";
 import Legend from "../Utilities/Legend";
-import Margin from "../Utilities/propTypes";
+import { Margin } from "../Utilities/propTypes";
 import { normalizeDate } from "../Utilities/chartUtils";
 
 /** Linegraph Chart. **Note**: Datapoints are displayed in the order provided. */
@@ -428,16 +428,16 @@ class LineGraph extends React.Component {
             <Axis height={this.h} axis={this.xAxis} axisType="x" />
             {xAxisLabel && (
               <AxisLabel
-                h={this.h}
-                w={this.w}
+                height={this.h}
+                width={this.w}
                 axisLabel={xAxisLabel}
                 axisType="x"
               />
             )}
             {yAxisLabel && (
               <AxisLabel
-                h={this.h}
-                w={this.w}
+                height={this.h}
+                width={this.w}
                 axisLabel={yAxisLabel}
                 axisType="y"
               />
